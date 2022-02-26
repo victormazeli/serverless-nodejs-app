@@ -1,0 +1,76 @@
+# serverless.yml
+
+service: serverless-nodejs-app
+
+provider:
+  name: aws
+  runtime: nodejs14.x
+  stage: dev
+  region: eu-central-1
+  environment:
+    tableName: ${self:custom.tableName}
+    bucketName: ${self:custom.s3UploadBucket}
+  iamRoleStatements:
+    - Effect: "Allow"
+      Action:
+        - dynamodb:*
+        - s3:*
+      Resource: '*'
+
+plugins:
+  - serverless-s3-sync
+
+custom:
+  s3Sync:
+    - bucketName: test-exam 
+      localDir: upload
+  tableName: LookUp
+  s3UploadBucket: test-exam
+
+
+functions:
+  fetchFile:
+    handler: lambdas/fetchFile.handler
+    events: # events trigger lambda functions
+      - http: # this is an API Gateway HTTP event trigger
+          path: get-file/{ID}
+          method: GET
+          cors: true
+  uploadFile:
+    handler: lambdas/uploadFile.handler
+    events: # events trigger lambda functions
+      - http: # this is an API Gateway HTTP event trigger
+          path: upload
+          method: POST
+          cors: true
+
+resources:
+  Resources: 
+    TestBucketUpload:
+      Type: AWS::S3::Bucket
+      Properties:
+        BucketName: ${self:custom.s3UploadBucket}
+        BucketEncryption:
+          ServerSideEncryptionConfiguration: # added serverside encryption to file
+            - ServerSideEncryptionByDefault:
+                SSEAlgorithm: AES256
+        VersioningConfiguration:
+          Status: Enabled
+        CorsConfiguration:
+          CorsRules:
+            - AllowedHeaders: ['*']
+              AllowedMethods: [GET, PUT]
+              AllowedOrigins: ['*']
+              Id: CORSRuleId1
+              MaxAge: '3600'  
+    MyDynamoDbTable:
+      Type: AWS::DynamoDB::Table
+      Properties:
+        TableName: ${self:custom.tableName}
+        AttributeDefinitions:
+          - AttributeName: ID
+            AttributeType: S
+        KeySchema:
+          - AttributeName: ID
+            KeyType: HASH
+        BillingMode: PAY_PER_REQUEST
