@@ -196,7 +196,7 @@
                 "S3Bucket": {
                   "Ref": "ServerlessDeploymentBucket"
                 },
-                "S3Key": "serverless/serverless-nodejs-app/dev/1645897473898-2022-02-26T17:44:33.898Z/serverless-nodejs-app.zip"
+                "S3Key": "serverless/serverless-nodejs-app/dev/1645898575961-2022-02-26T18:02:55.961Z/serverless-nodejs-app.zip"
               },
               "Handler": "lambdas/fetchFile.handler",
               "Runtime": "nodejs14.x",
@@ -227,7 +227,7 @@
                 "S3Bucket": {
                   "Ref": "ServerlessDeploymentBucket"
                 },
-                "S3Key": "serverless/serverless-nodejs-app/dev/1645897473898-2022-02-26T17:44:33.898Z/serverless-nodejs-app.zip"
+                "S3Key": "serverless/serverless-nodejs-app/dev/1645898575961-2022-02-26T18:02:55.961Z/serverless-nodejs-app.zip"
               },
               "Handler": "lambdas/uploadFile.handler",
               "Runtime": "nodejs14.x",
@@ -251,24 +251,24 @@
               "UploadFileLogGroup"
             ]
           },
-          "FetchFileLambdaVersionLKWm3sEptvwTlfY8aRmF5L5bIedqUqrATgkkKFIcE": {
+          "FetchFileLambdaVersionH44ebkfwmsfD5lp87ViVziqYbhlZi5YIqDMPSTjxM8": {
             "Type": "AWS::Lambda::Version",
             "DeletionPolicy": "Retain",
             "Properties": {
               "FunctionName": {
                 "Ref": "FetchFileLambdaFunction"
               },
-              "CodeSha256": "3OQ3OgJvi2B7z47qWjEFonQuUmXqHM/uBVgZ43N9VNs="
+              "CodeSha256": "UrRs+u7EbP/nZ65nbw8IbTEgzO35PySArybsL/eFQGI="
             }
           },
-          "UploadFileLambdaVersionKc944GGZaIyZN6OrCF3YljGsAdSLvGLc3mDWCrVnW6U": {
+          "UploadFileLambdaVersion1e1FmZf4GoGLq5d8kD4MYmXEmtDz7Fox3iC2gt9gjk": {
             "Type": "AWS::Lambda::Version",
             "DeletionPolicy": "Retain",
             "Properties": {
               "FunctionName": {
                 "Ref": "UploadFileLambdaFunction"
               },
-              "CodeSha256": "3OQ3OgJvi2B7z47qWjEFonQuUmXqHM/uBVgZ43N9VNs="
+              "CodeSha256": "UrRs+u7EbP/nZ65nbw8IbTEgzO35PySArybsL/eFQGI="
             }
           },
           "ApiGatewayRestApi": {
@@ -507,7 +507,7 @@
               "UploadFileLambdaPermissionApiGateway"
             ]
           },
-          "ApiGatewayDeployment1645897459167": {
+          "ApiGatewayDeployment1645898562660": {
             "Type": "AWS::ApiGateway::Deployment",
             "Properties": {
               "RestApiId": {
@@ -664,7 +664,7 @@
           "FetchFileLambdaFunctionQualifiedArn": {
             "Description": "Current Lambda function version",
             "Value": {
-              "Ref": "FetchFileLambdaVersionLKWm3sEptvwTlfY8aRmF5L5bIedqUqrATgkkKFIcE"
+              "Ref": "FetchFileLambdaVersionH44ebkfwmsfD5lp87ViVziqYbhlZi5YIqDMPSTjxM8"
             },
             "Export": {
               "Name": "sls-serverless-nodejs-app-dev-FetchFileLambdaFunctionQualifiedArn"
@@ -673,7 +673,7 @@
           "UploadFileLambdaFunctionQualifiedArn": {
             "Description": "Current Lambda function version",
             "Value": {
-              "Ref": "UploadFileLambdaVersionKc944GGZaIyZN6OrCF3YljGsAdSLvGLc3mDWCrVnW6U"
+              "Ref": "UploadFileLambdaVersion1e1FmZf4GoGLq5d8kD4MYmXEmtDz7Fox3iC2gt9gjk"
             },
             "Export": {
               "Name": "sls-serverless-nodejs-app-dev-UploadFileLambdaFunctionQualifiedArn"
@@ -839,7 +839,7 @@
         "timeout": 6,
         "runtime": "nodejs14.x",
         "vpc": {},
-        "versionLogicalId": "FetchFileLambdaVersionLKWm3sEptvwTlfY8aRmF5L5bIedqUqrATgkkKFIcE"
+        "versionLogicalId": "FetchFileLambdaVersionH44ebkfwmsfD5lp87ViVziqYbhlZi5YIqDMPSTjxM8"
       },
       "uploadFile": {
         "handler": "lambdas/uploadFile.handler",
@@ -874,7 +874,7 @@
         "timeout": 6,
         "runtime": "nodejs14.x",
         "vpc": {},
-        "versionLogicalId": "UploadFileLambdaVersionKc944GGZaIyZN6OrCF3YljGsAdSLvGLc3mDWCrVnW6U"
+        "versionLogicalId": "UploadFileLambdaVersion1e1FmZf4GoGLq5d8kD4MYmXEmtDz7Fox3iC2gt9gjk"
       }
     },
     "resources": {
@@ -962,7 +962,7 @@
     "artifact": "/Users/victor/work/serverless-nodejs-app/.serverless/serverless-nodejs-app.zip"
   },
   "package": {
-    "artifactDirectoryName": "serverless/serverless-nodejs-app/dev/1645897473898-2022-02-26T17:44:33.898Z",
+    "artifactDirectoryName": "serverless/serverless-nodejs-app/dev/1645898575961-2022-02-26T18:02:55.961Z",
     "artifact": "serverless-nodejs-app.zip"
   }
 }
